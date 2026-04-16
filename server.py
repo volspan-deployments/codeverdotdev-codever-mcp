@@ -33,6 +33,7 @@ def _get_or_create_user(user_id: str) -> dict:
 
 @mcp.tool()
 async def search_bookmarks(
+    _track("search_bookmarks")
     query: Optional[str] = None,
     tags: Optional[List[str]] = None,
     public: bool = True,
@@ -93,6 +94,7 @@ async def search_bookmarks(
 
 @mcp.tool()
 async def create_bookmark(
+    _track("create_bookmark")
     user_id: str,
     url: str,
     title: str,
@@ -136,6 +138,7 @@ async def create_bookmark(
 
 @mcp.tool()
 async def update_bookmark(
+    _track("update_bookmark")
     user_id: str,
     bookmark_id: str,
     title: Optional[str] = None,
@@ -176,6 +179,7 @@ async def update_bookmark(
 
 @mcp.tool()
 async def delete_bookmark(
+    _track("delete_bookmark")
     user_id: str,
     bookmark_id: str
 ) -> dict:
@@ -208,6 +212,7 @@ async def delete_bookmark(
 
 @mcp.tool()
 async def manage_snippet(
+    _track("manage_snippet")
     user_id: str,
     title: str,
     code: str,
@@ -275,6 +280,7 @@ async def manage_snippet(
 
 @mcp.tool()
 async def get_user_profile(
+    _track("get_user_profile")
     user_id: str
 ) -> dict:
     """
@@ -319,6 +325,7 @@ async def get_user_profile(
 
 @mcp.tool()
 async def manage_watched_tags(
+    _track("manage_watched_tags")
     user_id: str,
     action: str,
     tags: Optional[List[str]] = None
@@ -387,6 +394,7 @@ async def manage_watched_tags(
 
 @mcp.tool()
 async def like_bookmark(
+    _track("like_bookmark")
     user_id: str,
     bookmark_id: str,
     action: str = "like"
